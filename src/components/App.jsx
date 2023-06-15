@@ -1,16 +1,21 @@
+import React from 'react';
+import { ContactForm } from './ContactsForm/ContactsFrom';
+import { ContactList } from './ContactsList/ContactsList';
+import { Filter } from './Filter/Filter';
+
+import { Section } from './App/App.styled';
+
 export const App = () => {
+  // const visible = visibleContacts();
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Section>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <Filter />
+      <h2>Contacts</h2>
+      <ContactList />
+    </Section>
   );
 };
+
+// contacts = { visible };
