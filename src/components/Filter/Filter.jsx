@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Label, Input } from 'components/ContactsForm/ContactsForm.styled';
 import { useDispatch } from 'react-redux';
-import { filterContacts } from 'components/redux/FilterSlice';
+import { filterContacts } from 'redux/filterSlice/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();

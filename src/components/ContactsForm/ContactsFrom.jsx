@@ -2,7 +2,7 @@ import React from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'components/redux/ContactSlice';
+import { addContact } from 'redux/ContactSlice';
 
 import { Label, Form, Title, Input, Add } from './ContactsForm.styled';
 
