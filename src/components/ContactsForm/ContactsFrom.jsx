@@ -1,22 +1,17 @@
 import React from 'react';
 import { nanoid } from '@reduxjs/toolkit';
-
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'redux/ContactSlice';
-
 import { Label, Form, Title, Input, Add } from './ContactsForm.styled';
+import { addContactsThunk } from 'redux/thunk/thunk';
 
 export const ContactForm = () => {
-  const contacts = useSelector(({ contacts }) => contacts.contacts);
+  const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
-
   const nameInputId = nanoid();
   const numberInputId = nanoid();
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e.target.name.value)
-
     const contact = {
       id: nanoid(),
       name: e.target.name.value,
@@ -26,7 +21,7 @@ export const ContactForm = () => {
       alert('sorry');
       return;
     }
-    dispatch(addContact(contact));
+    dispatch(addContactsThunk(contact));
     e.target.reset();
   };
 
@@ -48,7 +43,7 @@ export const ContactForm = () => {
         <Title>Number</Title>
         <Input
           type="tel"
-          name="number"
+          name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required

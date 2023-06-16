@@ -9,6 +9,7 @@ export const Item = styled.li`
 `;
 
 export const List = styled.ul`
+position: relative;
   width: 400px;
 `;
 
@@ -26,3 +27,14 @@ export const Button = styled.button`
     box-shadow: 5px 3px 10px 1px;
   }
 `;
+
+
+export const Loading = styled.div`
+position: absolute;
+top: 553px;
+left:540px;
+color: red;
+font-size: 25px;
+
+
+`
