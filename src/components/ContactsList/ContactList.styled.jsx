@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Item = styled.li`
+position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,7 +10,6 @@ export const Item = styled.li`
 `;
 
 export const List = styled.ul`
-position: relative;
   width: 400px;
 `;
 
@@ -30,7 +30,7 @@ export const Button = styled.button`
 
 
 export const Loading = styled.div`
-position: absolute;
+margin: 0 ;
 top: 553px;
 left:540px;
 color: red;
