@@ -1,6 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { initialState } from 'redux/initialState/initialState';
+
 import { getContactsThunk } from 'redux/thunk/thunk';
+
+
+
+export const initialState = { 
+    items: [],
+    isLoading: false,
+    error: null,
+ 
+ 
+};
+
 
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -8,16 +19,16 @@ export const contactsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getContactsThunk.pending, (state, action) => {
-        state.contacts.isLoading = true;
+        state.isLoading = true;
       })
       .addCase(getContactsThunk.fulfilled, (state, action) => {
-        state.contacts.isLoading = false;
-        state.contacts.items = action.payload;
-        state.contacts.error = '';
+        state.isLoading = false;
+        state.items = action.payload;
+        state.error = '';
       })
       .addCase(getContactsThunk.rejected, (state, action) => {
-        state.contacts.isLoading = false;
-        state.contacts.error = action.payload;
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });

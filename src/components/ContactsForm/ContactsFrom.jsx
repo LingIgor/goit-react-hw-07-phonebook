@@ -15,11 +15,12 @@ export const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(e.target.name.value)
 
     const contact = {
       id: nanoid(),
       name: e.target.name.value,
-      number: e.target.number.value,
+      phone: e.target.phone.value,
     };
     if (contacts.find(({ name }) => name === contact.name)) {
       alert('sorry');

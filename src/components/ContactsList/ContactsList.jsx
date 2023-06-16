@@ -5,12 +5,10 @@ import { deleteContact } from 'redux/ContactSlice';
 import { getContactsThunk } from 'redux/thunk/thunk';
 
 export const ContactList = () => {
-  const contacts = useSelector(state => state.contacts.contacts);
-  console.log(contacts);
-
-  const filter = useSelector(state => state.contacts.filter);
-  console.log(filter);
-
+  const contacts = useSelector(state => state.contacts.items);
+ console.log(contacts)
+  const filterContact = useSelector(state => state.filter);
+  console.log(filterContact)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,8 +19,8 @@ export const ContactList = () => {
   // };
 
   const getVisibleContacts = () => {
-    return contacts.items.filter(({ name }) =>
-      name.toLowerCase().includes(filter.toLowerCase())
+    return contacts.filter(({ name }) =>
+      name.toLowerCase().includes(filterContact.filter.toLowerCase())
     );
   };
 
